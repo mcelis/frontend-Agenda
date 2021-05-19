@@ -1,0 +1,93 @@
+.formulario {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    justify-content: center;
+}
+/*
+.formulario input {
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+    color: #4ecdc4;
+}
+
+.formulario label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+    color: #1a535c;
+}
+
+.titulo {
+    text-align: center;
+    color: rgb(75, 74, 74);
+    padding: 10px;
+    background-color: #ffe66d;
+    width: 400px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.btn-grande {
+    width: 200px;
+    margin-top: 20px;
+}
+
+.previa {
+    display: block;
+    margin-right: 40px;
+    font-size: 0.6rem;
+    text-align: center;
+    font-weight: bold;
+    color: #1a535c;
+}
+
+button:hover {
+    background-color: #4ecdc4;
+}
+
+button:disabled {
+    background-color: rgb(211, 207, 207);
+}
+
+.error {
+    font-size: 0.7rem;
+    color: honeydew;
+    background-color: #ff6b6b;
+    padding: 5px;
+    border-radius: 5px;
+}
+*/
+
+  .example-form-field {
+    width: 200px;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 40%;
+    background-color:rgb(22, 74, 109);
+    justify-content: center;
+  }
+
+  .center{
+    width: min-content;
+    justify-content: center;
+  }
+
+  .titleContact{
+    height: 10vh;
+    width: 125vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

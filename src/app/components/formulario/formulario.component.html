@@ -1,0 +1,71 @@
+<div class="titleContact"> 
+<mat-card>
+    <mat-card-header>
+        <mat-card-title class="center">
+            <h1 *ngIf="!editar ; else editartrue">Nuevo Contacto</h1>
+        </mat-card-title>
+    </mat-card-header>
+</mat-card>
+</div>
+<ng-template #editartrue>
+    <h1>Editar Contacto</h1>
+</ng-template>
+<div class="formulario">
+
+    <div class="foto previa">
+        <img id="fotoPrevia" alt="Sin">
+        <div>Vista previa de la foto:</div>
+    </div>
+
+    <form [formGroup]="rForm" (ngSubmit)="onSubmit(rForm.value)">
+
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" placeholder="Nombre" formControlName="nombre"/>
+            <div *ngIf="!rForm.controls['nombre'].valid && rForm.controls['nombre'].touched " class="error">Debe ingresar un nombre de usuario con más de tres caracteres!</div>
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Aoellidos</mat-label>
+            <input matInput type="text" placeholder="Apellidos" formControlName="apellidos"/>
+            <div *ngIf="!rForm.controls['apellidos'].valid && rForm.controls['apellidos'].touched " class="error">Debe ingresar un apellido de usuario con más de tres caracteres!</div>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Direccion</mat-label>
+            <input matInput type="text" placeholder="direccion" formControlName="direccion"/>
+            <div *ngIf="!rForm.controls['direccion'].valid && rForm.controls['direccion'].touched " class="error">Debe ingresar una dirección!</div>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="correo" formControlName="correo"/>
+            <div *ngIf="!rForm.controls['correo'].valid && rForm.controls['correo'].touched " class="error">Debe ingresar una dirección de email válida!</div>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Télefono</mat-label>
+            <input matInput type="number" placeholder="telefono" formControlName="telefono"/>
+            <div *ngIf="!rForm.controls['telefono'].valid && rForm.controls['telefono'].touched " class="error">Debe ingresar un número entre 3000000000 y 3300000000!</div>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label for="foto">URL Imagen</mat-label>
+            <input matInput (change)="cargarFoto()" type="url" id="foto" formControlName="foto" required>
+            <div *ngIf="!rForm.controls['foto'].valid && rForm.controls['foto'].touched " class="error">Debe ingresar una dirección URL válida!</div>
+        </mat-form-field> 
+
+       
+        <div *ngIf="editar">
+            <input type="hidden" formControlName="id" value="">
+        </div>
+
+        <div *ngIf="!editar ; else editarboton">
+            <button mat-button type="submit" [disabled]="!rForm.valid" class="btn-grande">Guardar Contacto</button>
+        </div>
+        <ng-template #editarboton>
+            <button type="submit" [disabled]="!rForm.valid" class="boton btn-exito btn-grande">Actualizar Contacto</button>
+        </ng-template>
+    </form>
+</div>

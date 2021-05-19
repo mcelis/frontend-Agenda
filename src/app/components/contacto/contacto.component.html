@@ -1,0 +1,58 @@
+<div class="main-div">
+<mat-card class="containerfirst">
+    <div class="foto">
+        <img src="{{contacto.foto}}">
+    </div>
+
+    <mat-list class="containerfirst">
+        <mat-list-item>{{contacto.nombre }} {{contacto.apellidos }}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{contacto.direccion }}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{contacto.correo }}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{contacto.telefono }}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item [ngClass]="{ 'bloqueado': contacto.bloqueado, 'no-bloqueado': !contacto.bloqueado }"></mat-list-item>
+        <span *ngIf="!contacto.bloqueado else blockeado"> Amigo!</span>
+        <ng-template #blockeado> <span>Bloqueado!</span> </ng-template>
+    </mat-list>
+      
+    <div class="botones">
+        <button  [routerLink]="['/editar' , contacto.id]"> Editar </button>
+        <button  (click)="borrarContacto(contacto)"> Borrar </button>
+        <button  (click)="bloquearContacto(contacto)" [ngClass]="{ 'btn-negativo': !contacto.bloqueado, 'btn-exito': contacto.bloqueado }">
+            <span *ngIf="!contacto.bloqueado else desbloquear"> Bloquear</span>
+            <ng-template #desbloquear> <span>Desbloquear</span> </ng-template> </button>
+    </div>
+
+</mat-card>
+</div>
+
+<!--
+    <div class="contacto">
+    <div class="foto">
+        <img src="{{contacto.foto}}">
+    </div>
+    <div class="datosContacto">
+        <ul>
+            <li> {{contacto.nombre }} {{contacto.apellidos }}</li>
+            <li> {{contacto.direccion }}</li>
+            <li> {{contacto.correo }}</li>
+            <li> {{contacto.telefono }}</li>
+            <li [ngClass]="{ 'bloqueado': contacto.bloqueado, 'no-bloqueado': !contacto.bloqueado }">
+                <span *ngIf="!contacto.bloqueado else blockeado"> Amigo!</span>
+                <ng-template #blockeado> <span>Bloqueado!</span> </ng-template>
+            </li>
+        </ul>
+    </div>
+    <div class="botones">
+        <button class="btn-positivo" [routerLink]="['/editar' , contacto.id]"> Editar </button>
+        <button class="btn-negativo" (click)="borrarContacto(contacto)"> Borrar </button>
+        <button class="btn-negativo" (click)="bloquearContacto(contacto)" [ngClass]="{ 'btn-negativo': !contacto.bloqueado, 'btn-exito': contacto.bloqueado }">
+            <span *ngIf="!contacto.bloqueado else desbloquear"> Bloquear</span>
+            <ng-template #desbloquear> <span>Desbloquear</span> </ng-template> </button>
+    </div>
+
+</div>
+-->
